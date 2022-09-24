@@ -1,13 +1,6 @@
 const express = require('express')
-const app = express()
-const server = require('http').Server(app)
-const io = require('socket.io')(server)
-const { v4: uuidV4 } = require('uuid')
 const mongoose = require('mongoose')
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
-
-
+ const app = express()
 const dbURI = 'mongodb://127.0.0.1:27017/testdb'
  const conn = mongoose.connect(dbURI,
     {
@@ -18,6 +11,8 @@ const dbURI = 'mongodb://127.0.0.1:27017/testdb'
     }).catch((err)=>{
         console.log(err)
     })
+
+    //
     
 app.use(express.urlencoded({ limit: "1000000mb", extended: true }));
 app.use(express.json({ limit: "1000000mb", extended: true }));
@@ -32,15 +27,6 @@ app.use('/api/user', require('./Routes/userRoutes/deleteUser'))
 app.use('/api/transaction', require('./Routes/transaction/creditWallet'))
 app.use('/api/transaction', require('./Routes/transaction/withdraw'))
 app.use('/api/transaction', require('./Routes/transaction/transfer'))
-
-
-app.get('/', (req, res) => {
-  res.redirect(`/${uuidV4()}`)
-})
-
-app.get('/:room', (req, res) => {
-  res.render('room', { roomId: req.params.room })
-})
 
 app.use((req, res, next) => {
     const error = new Error("Not Found");
@@ -57,19 +43,7 @@ app.use((req, res, next) => {
       },
     });
   });
-
-io.on('connection', socket => {
-  socket.on('join-room', (roomId, userId) => {
-    socket.join(roomId)
-    socket.to(roomId).broadcast.emit('user-connected', userId)
-
-    socket.on('disconnect', () => {
-      socket.to(roomId).broadcast.emit('user-disconnected', userId)
-    })
-  })
-})
+  
 
  app.listen(3000, console.log('server running on port 3000'))
-
-
 
