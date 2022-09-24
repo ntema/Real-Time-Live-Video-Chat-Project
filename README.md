@@ -42,4 +42,4 @@ Node js, Express, Javascript, HTML, CSS, EJS, WebRtc (peer), Webscokets (Socket.
 3 - run npm i -g peerjs seperately( only for live video chat)
 4 - start the peerjs server with: peerjs --port 3001 ( only for live video chat)
 5 - On the different terminal, seperate from the peerjs terminal, Get the project running with: npm run dev 
-6 - On your browser: run localhost:3000 ( only for live video chat). For payment project, checkout the API documentation follow suit using POSTMAN
+6 - On your browser: run localhost:3000 ( only for live video chat). For payment project, checkout the API documentation( https://documenter.getpostman.com/view/19932253/2s83KRi5oG) and follow suit using POSTMAN
