@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
   <script>
     const ROOM_ID = "<%= roomId %>"
   </script>
   <!-- <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script> -->
   <script defer src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
   <script src="/socket.io/socket.io.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="js/script.js" defer></script>
   <title>Document</title>
   <style>
     #video-grid {
@@ -23,10 +24,37 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      background-color: black;
     }
   </style>
 </head>
 <body>
   <div id="video-grid"></div>
+
+  <!-- <div id="videos">
+    <video class="video-player" id="user-1" autoplay playsinline></video>
+    <video class="video-player" id="user-2" autoplay playsinline></video>
+    <video class="video-player" id="user-3" autoplay playsinline></video>
+</div> -->
+
+<div id="controls">
+
+    <div class="control-container" id="camera-btn">
+        <img src="icons/camera.png" />
+    </div>
+
+    <div class="control-container" id="mic-btn">
+        <img src="icons/mic.png" />
+    </div>
+
+    <a href="lobby.ejs">
+        <div class="control-container" id="leave-btn">
+            <img src="icons/phone.png" />
+        </div>
+    </a>
+
+</div>
 </body>
+<!-- <script src='js/agora-rtm-sdk-1.4.4.js'></script> -->
+<!-- <script src='js/main.js'></script> -->
 </html>
