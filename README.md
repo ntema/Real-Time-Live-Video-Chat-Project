@@ -37,7 +37,7 @@ Ability to terminate call
 Node js, Express, Javascript, HTML, CSS, EJS, WebRtc (peer), Webscokets (Socket.io)
 
 #Installation
-1 - clone repo https://github.com/divanov11/PeerChat and navigate to any of the project folder
+1 - clone repo https://github.com/ntema/Real-Time-Live-Video-Chat-Project.git and navigate to any of the project folder
 2 - run npm install to install all dependencies
 3 - run npm i -g peerjs seperately( only for live video chat)
 4 - start the peerjs server with: peerjs --port 3001 ( only for live video chat)
