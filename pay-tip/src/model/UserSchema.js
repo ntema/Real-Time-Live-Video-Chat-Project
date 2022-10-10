@@ -46,12 +46,11 @@ const UserSchema = new mongoose.Schema(
 
 
 const populateUser = function (next) {
-  this.populate("wallet", "_id amount"),
+  this.populate("wallet"),
   next();
 };
 
 UserSchema.pre("find", populateUser)
   .pre("findOne", populateUser)
-  // .pre("findById", populateUser)
   .pre("findOneAndUpdate", populateUser);
 module.exports = mongoose.model('User', UserSchema)

@@ -3,6 +3,6 @@ const creditWalletController = require('../../controller/transactionController/c
 const verifyToken = require('../../middlewares/authMiddleware/verifyToken')
 const verifyAdminAndUserToken = require('../../middlewares/authMiddleware/verifyUserAndAdmin')
 
-router.post('/credit-wallet',verifyToken, verifyAdminAndUserToken, creditWalletController )
+router.post('/credit-wallet',verifyToken, creditWalletController )
 
 module.exports = router

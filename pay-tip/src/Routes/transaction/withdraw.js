@@ -3,6 +3,6 @@ const WithdrawalController = require('../../controller/transactionController/Wit
 const verifyToken = require('../../middlewares/authMiddleware/verifyToken')
 const verifyAdminAndUserToken = require('../../middlewares/authMiddleware/verifyUserAndAdmin')
 
-router.put('/withdraw',verifyToken,verifyAdminAndUserToken, WithdrawalController )
+router.put('/withdraw',verifyToken, WithdrawalController )
 
 module.exports = router

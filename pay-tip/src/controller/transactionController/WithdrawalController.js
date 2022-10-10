@@ -6,7 +6,7 @@ const Joi = require("joi");
 const Schema = Joi.object({
   kind: Joi.string().required(),
   amount: Joi.number().required(),
-  reference: Joi.object().required(),
+  reference: Joi.date().required(),
 });
 
 module.exports = async function (req, res, next) {
@@ -28,15 +28,14 @@ module.exports = async function (req, res, next) {
 
     const trans = await Transaction.create({
       amount,
-      transact_with,
-      kind: "transfer",
+      kind,
       reference: transactAt,
     });
 
     let wallet;
     if (kind === "transfer" || kind === "withdraw") {
       wallet = await Wallet.findOneAndUpdate(
-        { _id },
+        { confirmedBy },
         { $inc: { wallet: - value.amount } },
         { new: true }
       );

@@ -3,6 +3,6 @@ const getSingleUserController = require('../../controller/userController/getSing
 const verifyToken = require('../../middlewares/authMiddleware/verifyToken')
 const verifyAdminAndUserToken = require('../../middlewares/authMiddleware/verifyUserAndAdmin')
 
-router.get('/:id',verifyToken, verifyAdminAndUserToken, getSingleUserController )
+router.get('/single',verifyToken, getSingleUserController )
 
 module.exports = router

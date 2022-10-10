@@ -3,6 +3,6 @@ const updateUserController = require('../../controller/userController/updateUser
 const verifyToken = require('../../middlewares/authMiddleware/verifyToken')
 const verifyAdminAndUserToken = require('../../middlewares/authMiddleware/verifyUserAndAdmin')
 
-router.put('/:id',verifyToken,verifyAdminAndUserToken, updateUserController )
+router.put('/:id',verifyToken, updateUserController )
 
 module.exports = router

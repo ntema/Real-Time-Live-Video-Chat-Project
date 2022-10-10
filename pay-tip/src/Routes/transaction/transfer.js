@@ -1,8 +1,8 @@
 const router = require('express').Router()
-const WithdrawalController = require('../../controller/transactionController/WithdrawalController')
+const transferController = require('../../controller/transactionController/transferController')
 const verifyToken = require('../../middlewares/authMiddleware/verifyToken')
 const verifyAdminAndUserToken = require('../../middlewares/authMiddleware/verifyUserAndAdmin')
 
-router.put('/transfer',verifyToken, verifyAdminAndUserToken, WithdrawalController )
+router.put('/transfer/:id',verifyToken, transferController )
 
 module.exports = router

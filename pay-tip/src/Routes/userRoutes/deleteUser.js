@@ -4,6 +4,6 @@ const verifyToken = require('../../middlewares/authMiddleware/verifyToken')
 const verifyAdminToken = require('../../middlewares/authMiddleware/verifyAdmin')
 const verifyAdminAndUserToken = require('../../middlewares/authMiddleware/verifyUserAndAdmin')
 
-router.delete('/:id',verifyToken,verifyAdminAndUserToken, deleteUserController )
+router.delete('/:id',verifyToken, verifyAdminToken, deleteUserController )
 
 module.exports = router
